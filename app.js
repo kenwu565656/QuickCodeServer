@@ -16,7 +16,7 @@ const corsOptions ={
 
 // use quickcode db
 var monk = require('monk');
-var db = monk('127.0.0.1:27017/quickcode');
+var db = monk(process.env.CUSTOMCONNSTR_MyConnectionString || '127.0.0.1:27017/quickcode');
 
 
 // load the router module implemented in ./routes/products.js
