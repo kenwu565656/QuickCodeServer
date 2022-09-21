@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var cors = require('cors');
+var port = process.env.PORT || 3001;
+
 const cors=require("cors");
 const corsOptions ={
    origin:'*', 
@@ -13,14 +14,12 @@ const corsOptions ={
 
 
 
-// use assignment2 db
+// use quickcode db
 var monk = require('monk');
 var db = monk('127.0.0.1:27017/quickcode');
 
 
 // load the router module implemented in ./routes/products.js
-var product = require('./routes/products');
-
 var post = require('./routes/post');
 
 var app = express();
@@ -70,8 +69,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var server = app.listen(3001, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log("iShop server listening at http://%s:%s", host, port);
+app.listen(port, function () {
+  console.log("Server is running on port " + port);
 })
