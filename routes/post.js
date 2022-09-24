@@ -128,4 +128,19 @@ router.post("/signin", function(req, res){
     })
 });
 
+router.get("/try", function(req, res){
+    var db = req.db;
+    var coll = db.get('userCollection');
+    coll.find({}, {}, function(e, docs){
+        if(e === null){
+            console.log(docs);
+            res.json(docs);         
+        }else{
+            res.send("fail");
+            //res.send(e);
+        }
+    })
+    //res.send("Hello World");
+})
+
 module.exports = router;

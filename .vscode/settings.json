@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/f3bef64e-d6bd-455d-87fb-e44719d89c46/AppServices/subscriptions/f3bef64e-d6bd-455d-87fb-e44719d89c46/resourceGroups/quickcode/providers/Microsoft.Web/sites/quickcodeserver",
+    "appService.deploySubpath": "."
+}

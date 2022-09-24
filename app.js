@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var port = process.env.PORT || 3001;
 
@@ -11,8 +11,6 @@ const corsOptions ={
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
 }
-
-
 
 // use quickcode db
 var monk = require('monk');
@@ -38,18 +36,6 @@ app.use(function(req,res,next){
   req.db = db; 
   next();
 });
-
-/*var corsOptions = {
-  "origin": "https://demofreshmind.azurewebsites.net/",
-  "credentials":true
- }
- */
- 
-//app.options(corsOptions, cors());
-
-//app.options('*', cors());
-
-//app.use(cors(corsOptions));
 
 app.use('/', post);
 
